@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Country</ion-label>
+    <ion-select [(ngModel)]="countries" (ionChange)="optionFn($event)">
+      <ion-select-option *ngFor="let item of (countries | async)" value="{{ item.name }}">{{ item.name }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br>
+  <ion-button expand="block" color="primary" shape="round" (click)="search()" padding-start padding-end>Go</ion-button>
+</ion-content>
