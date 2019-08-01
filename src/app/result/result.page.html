@@ -13,6 +13,6 @@
   </div>
   <ion-text>
     <h1 style="text-align:center">{{ (weather | async)?.weather[0].main }} {{ ((weather | async)?.main.temp - 273.15 | number:'1.0-0')  }}&deg;C</h1>
-    <!-- <h2></h2> -->
+    <h4 style="text-align:center">{{ (weather | async)?.name }}</h4>
   </ion-text>
 </ion-content>
