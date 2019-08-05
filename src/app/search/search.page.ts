@@ -12,6 +12,8 @@ import { NavController } from '@ionic/angular';
 export class SearchPage implements OnInit {
 
   countries: Observable<any>;
+  city = '';
+  q = '';
   private selectedCountry = '';
 
   constructor(
@@ -30,7 +32,18 @@ export class SearchPage implements OnInit {
   }
 
   search() {
-    this.navController.navigateForward(`/result/${this.selectedCountry}`);
+    this.q = '';
+    console.log(this.city);
+    if (this.city !== '') {
+      this.q = this.q + this.city;
+    }
+    if (this.city !== '' && this.selectedCountry !== ''){
+      this.q = this.q + ',';
+    }
+    if (this.selectedCountry !== '') {
+      this.q = this.q + this.selectedCountry;
+    }
+    this.navController.navigateForward(`/result/${this.q}`);
   }
 
 

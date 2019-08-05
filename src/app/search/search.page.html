@@ -5,12 +5,18 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label>Country</ion-label>
-    <ion-select [(ngModel)]="countries" (ionChange)="optionFn($event)">
-      <ion-select-option *ngFor="let item of (countries | async)" value="{{ item.name }}">{{ item.name }}</ion-select-option>
-    </ion-select>
-  </ion-item>
-  <br>
+  <div class="ion-padding">
+    <ion-item>
+      <ion-label position="stacked">Country</ion-label>
+      <ion-select [(ngModel)]="countries" (ionChange)="optionFn($event)">
+        <ion-select-option *ngFor="let item of (countries | async)" value="{{ item.name }}">{{ item.name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">City</ion-label>
+      <ion-input [(ngModel)]="city"></ion-input>
+    </ion-item>
+    <br>
+  </div>
   <ion-button expand="block" color="primary" shape="round" (click)="search()" padding-start padding-end>Go</ion-button>
 </ion-content>
